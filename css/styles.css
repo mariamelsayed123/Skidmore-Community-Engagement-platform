@@ -1,0 +1,272 @@
+/* Existing styles... */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 50px;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif; /* Change to Montserrat */
+  font-weight: 700; /* Bold weight */
+  color: #007A33; /* Optional: Change text color for better aesthetics */
+}
+
+label {
+  color: #3498db; /* Optional: keep blue for the feedback label */
+  font-weight: bold; /* Make it bold */
+}
+
+p {
+  color: #666;
+  font-size: 1.2em;
+}
+
+/* New Styles for Button and Form */
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the form */
+form {
+  margin-top: 20px;
+}
+
+/* Styles for the top navigation bar */
+.top-navbar {
+  background: #007A33; /* Skidmore green for top navbar */
+  color: white;
+  padding: 10px 0; /* Top and bottom padding */
+}
+
+.top-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove default margin */
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: center; /* Center items */
+}
+
+.top-navbar ul li {
+  margin: 0 15px; /* Spacing between items */
+}
+
+.top-navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold; /* Makes links bold */
+}
+
+/* Styles for the bottom navigation bar */
+.bottom-navbar {
+  background: #007A33; /* Skidmore green for bottom navbar */
+  color: white;
+  padding: 10px 20px; /* Top and bottom padding, left and right */
+  text-align: center; /* Center links */
+}
+
+.bottom-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Remove default margin */
+}
+
+.bottom-navbar ul li {
+  display: inline; /* Horizontal layout */
+  margin: 0 15px; /* Spacing between items */
+}
+
+.bottom-navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Original nav styles (if needed) */
+nav {
+  background-color: #fff; /* White background for a clean look */
+  color: #333; /* Dark text color */
+  padding: 15px; /* Adds space around the menu */
+  margin-top: 20px; /* Space above the nav */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+nav ul {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes padding */
+  text-align: center; /* Center aligns the items */
+  display: flex; /* Use flexbox for better alignment */
+}
+/* Calendar Styles */
+#volunteering-calendar {
+  margin: 20px;
+  text-align: center;
+}
+
+.calendar {
+  width: 100%; /* Full width of the container */
+  max-width: 1200px; /* Optional: set a maximum width */
+  margin: 0 auto; /* Center the calendar */
+  border: 1px solid #007A33; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide any overflow */
+  background: white; /* Calendar background */
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between; /* Space between header items */
+  align-items: center;
+  background-color: #007A33; /* Header background color */
+  color: white; /* Header text color */
+  padding: 10px; /* Padding for the header */
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+  gap: 5px; /* Space between the days */
+  padding: 10px; /* Padding inside the calendar */
+}
+
+.calendar-day {
+  padding: 20px; /* Increased padding for better spacing */
+  border: 1px solid #ccc; /* Day border */
+  border-radius: 4px; /* Rounded corners */
+  text-align: center; /* Center text */
+  background-color: #f9f9f9; /* Background color for each day */
+}
+
+.calendar-day.event {
+  background-color: #007A33; /* Event day color */
+  color: white; /* Event text color */
+}
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+/* General styles for sections */
+section {
+  background-color: white; /* White background for sections */
+  border: 1px solid #007A33; /* Green border */
+  border-radius: 8px; /* Rounded corners */
+  margin: 20px auto; /* Centered with margin */
+  padding: 20px; /* Padding inside the section */
+  max-width: 400px; /* Max width for form sections */
+}
+
+/* Label styles */
+label {
+  color: black; /* Set label text color to black */
+  margin-top: 10px; /* Space above labels */
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #007A33; /* Green border for inputs */
+  border-radius: 5px; /* Rounded corners */
+}
+
+button {
+  background-color: #007A33; /* Green background for buttons */
+  color: white; /* White text */
+  padding: 10px;
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  margin-top: 10px; /* Space above the button */
+}
+
+button:hover {
+  background-color: #005F29; /* Darker green on hover */
+}
+.calendar-container {
+  display: flex; /* Use flexbox for side by side layout */
+  justify-content: space-between; /* Space between items */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.calendar {
+  flex: 1; /* Allow calendar to take available space */
+  margin-right: 20px; /* Space between calendar and image */
+}
+
+.calendar-image {
+  width: 300px; /* Set a fixed width for the image container */
+  /* Adjust width as necessary */
+}
+.image-gallery {
+  background-color: yellow; /* Set the background color of the gallery box to yellow */
+  border: 1px solid #007A33; /* Keep the border color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Padding inside the box */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  max-height: 600px; /* Set a max height for the gallery */
+}
+#volunteering-calendar h2 {
+  font-family: 'Open Sans', sans-serif; /* Change to Roboto */
+  font-weight: 700; /* Bold weight */
+  color: #007A33; /* Optional: Change text color for better aesthetics */
+  margin-top: 20px; /* Optional: Add margin for spacing */
+}
+.image-gallery h3 {
+  font-family: 'Open Sans', sans-serif; /* Change to Montserrat */
+  font-weight: 700; /* Bold weight */
+  color: #007A33; /* Optional: Change text color for better aesthetics */
+  margin-top: 20px; /* Optional: Add margin for spacing */
+}
+.experience-sharing {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.experience-sharing h2 {
+  font-family: 'Montserrat', sans-serif; /* Use a suitable font */
+  color: #007A33; /* Main color */
+  margin-bottom: 15px;
+}
+
+.experience-card {
+  background-color: white; /* Card background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px; /* Space between cards */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.experience-card h3 {
+  font-family: 'Lato', sans-serif; /* Use a suitable font */
+  color: #007A33; /* Main color */
+}
+
+.experience-card p {
+  font-family: 'Open Sans', sans-serif; /* Use a suitable font */
+  color: #333; /* Text color */
+}
