@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skidmore Community Engagement Platform</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+      body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: white; /* Set background color to white */
+      }
+
+      .top-navbar {
+          background-color: green;
+          padding: 10px 0;
+      }
+
+      .top-navbar ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+      }
+
+      .top-navbar li {
+          margin: 0 15px;
+      }
+
+      .top-navbar a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      .top-navbar a:hover {
+          text-decoration: underline;
+      }
+
+      header {
+          text-align: center;
+          padding: 20px 0;
+      }
+
+      main {
+          padding: 20px;
+      }
+
+      .bottom-navbar {
+          background: #007A33;
+          color: white;
+          padding: 10px 0;
+          margin-top: 20px;
+      }
+
+      .bottom-navbar ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+      }
+
+      .bottom-navbar ul li {
+          margin: 0 15px;
+      }
+
+      footer {
+          margin-top: 20px;
+          text-align: center;
+      }
+
+      /* Calendar Section */
+      #volunteering-calendar {
+          margin: 20px auto;
+          text-align: center;
+          max-width: 800px; /* Set a max width for the calendar section */
+      }
+
+      .calendar {
+          background: white;
+          border: 1px solid #007A33;
+          border-radius: 8px;
+          overflow: hidden;
+          margin-bottom: 20px; /* Space between calendar and experiences */
+          padding: 10px;
+      }
+
+      .calendar-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #007A33;
+          color: white;
+          padding: 10px;
+      }
+
+      .calendar-days {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 5px;
+          padding: 10px;
+      }
+
+      .calendar-day {
+          padding: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-align: center;
+          background-color: #f9f9f9;
+          cursor: pointer;
+      }
+
+      .calendar-day.event {
+          background-color: #007A33;
+          color: white;
+      }
+
+      /* Experience Sharing */
+      .experience-sharing {
+          background-color: #f9f9f9; /* Light background for contrast */
+          padding: 20px;
+          border-radius: 8px;
+          margin: 20px auto; /* Center the section */
+          max-width: 800px; /* Set a max width */
+          width: 100%; /* Full width */
+      }
+
+      .experience-sharing h2 {
+          font-family: 'Montserrat', sans-serif; /* Use a suitable font */
+          color: #007A33; /* Main color */
+          margin-bottom: 15px;
+      }
+
+      .experience-card {
+          background-color: white; /* Card background */
+          border: 1px solid #ddd; /* Light border */
+          border-radius: 5px;
+          padding: 15px;
+          margin-bottom: 15px; /* Space between cards */
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+
+      .experience-card h3 {
+          font-family: 'Lato', sans-serif; /* Use a suitable font */
+          color: #007A33; /* Main color */
+      }
+
+      .experience-card p {
+          font-family: 'Open Sans', sans-serif; /* Use a suitable font */
+          color: #333; /* Text color */
+      }
+
+      /* Image Gallery */
+      .image-gallery {
+          background: white;
+          border: 1px solid #007A33;
+          border-radius: 8px;
+          padding: 10px;
+          overflow-y: auto;
+          max-height: 500px; /* Set a max height for the gallery */
+          margin: 20px auto; /* Center the section */
+          max-width: 700px; /* Set a max width, smaller than calendar */
+          width: 100%; /* Full width */
+      }
+
+      .scrollable-images {
+          display: flex;
+          overflow-x: auto; /* Enable horizontal scrolling */
+          white-space: nowrap; /* Prevent images from wrapping */
+      }
+
+      .scrollable-images img {
+          height: 130px; /* Set a fixed height for images */
+          margin-right: 10px; /* Space between images */
+          border-radius: 5px; /* Optional: rounded corners */
+          border: 1px solid #ccc; /* Optional: border around images */
+      }
+
+      /* Modal Styles */
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.4);
+          padding-top: 60px;
+      }
+
+      .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+      }
+
+      .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+          color: black;
+          cursor: pointer;
+      }
+
+      /* Registration and About Us sections */
+      .flex-container {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 20px;
+      }
+
+      .registration, .about-us {
+          flex: 1;
+          margin: 10px;
+          padding: 20px;
+          border: 1px solid #007A33;
+          border-radius: 8px;
+          background-color: #f9f9f9;
+      }
+  </style>
+</head>
+<body>
+    <nav class="top-navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Welcome to Skidmore Community Engagement Platform (SCEP)</h1>
+        <img src="https://d13b2ieg84qqce.cloudfront.net/771f79e437d6e1da302edf2a219e54f82e9fae78" alt="Community Engagement" style="width:100%; height:auto;">
+    </header>
+    
+    <main>
+        <!-- Modified Calendar Section -->
+        <section id="volunteering-calendar">
+            <h2>The Volunteering Opportunities Calendar</h2>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button id="prevMonth">❮</button>
+                    <h3 id="monthYear"></h3>
+                    <button id="nextMonth">❯</button>
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+            </div>
+        </section>
+
+        <!-- Experiences Section -->
+        <section class="experience-sharing">
+            <h2>Student Volunteering Experiences</h2>
+            <div class="experience-card">
+                <h3>Mariam Elsayed</h3>
+                <p><strong>Organization:</strong> Ge Elfun Computer Rehab of Schenectady Inc</p>
+                <p>I have assisted in securely removing customer data from devices. I have absolutely enjoyed every second and would encourage students to go for it!</p>
+            </div>
+            <div class="experience-card">
+                <h3>The Rock</h3>
+                <p><strong>Organization:</strong> Community Hospice of Saratoga</p>
+                <p>I have had the opportunity to work with patients facing life threatening illnesses. I learned a lot and it's been a deeply meaningful experience.</p>
+            </div>
+            <!-- Add more experience cards as needed -->
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="image-gallery">
+            <h3>Skidmore College Volunteering Gallery</h3>
+            <div class="scrollable-images">
+                <img src="https://www.skidmore.edu/career/community_service/images/2024forcommunity.jpg" alt="Volunteering 3">
+                <img src="https://www.skidmore.edu/career/community_service/images/2024forstudents.jpg" alt="Volunteering 2">
+                <img src="https://www.skidmore.edu/civic-engagement/images/nurcan-students.jpg" alt="Volunteering 4">
+                <img src="https://www.alumni.skidmore.edu/s/1187/images/editor/website/volunteer/original/classmates_graphic.jpg" alt="Volunteering 4">
+            </div>
+        </section>
+
+        <!-- Registration and About Us Sections -->
+        <div class="flex-container">
+            <section class="registration">
+                <h2>Create an Account</h2>
+                <form id="registrationForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                    
+                    <button type="submit">Register</button>
+                </form>
+            </section>
+
+            <section class="about-us">
+                <h2>About Us</h2>
+                <img src="https://collegeaim.org/wp-content/uploads/2021/09/Skidmore_Wordmark_Thick_Green-768x220.png" alt="About Us" style="width:100%; height:auto;">
+                <p>This platform has been constructed by Mariam Elsayed to help students at Skidmore College actively engage in their community both on and off campus!</p>
+            </section>
+        </div>
+
+        <footer>
+            <form id="feedbackForm">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </footer>
+
+        <nav class="bottom-navbar">
+            <ul>
+                <li><a href="html/volunteer-matching.html">Volunteer Matching</a></li>
+                <li><a href="#volunteering-calendar">Event Calendar</a></li>
+                <li><a href="html/data-insights.html">Data Insights</a></li>
+                <li><a href="html/resource-hub.html">Resource Hub</a></li>
+                <li><a href="html/user-accounts.html">User Accounts</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Modal for Event Details -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="eventTitle"></h2>
+            <p id="eventDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        const monthYearElement = document.getElementById("monthYear");
+        const calendarDaysElement = document.getElementById("calendarDays");
+        const prevMonthButton = document.getElementById("prevMonth");
+        const nextMonthButton = document.getElementById("nextMonth");
+
+        let currentDate = new Date();
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            monthYearElement.textContent = currentDate.toLocaleString("default", { month: "long" }) + " " + year;
+            calendarDaysElement.innerHTML = "";
+
+            const firstDay = new Date(year, month, 1);
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const startingDay = firstDay.getDay();
+
+            for (let i = 0; i < startingDay; i++) {
+                const emptyCell = document.createElement("div");
+                calendarDaysElement.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement("div");
+                dayCell.classList.add("calendar-day");
+                dayCell.textContent = day;
+
+                if (day % 5 === 0) {
+                    dayCell.classList.add("event");
+                    dayCell.textContent += " - Volunteering opportunity Available";
+                }
+
+                dayCell.addEventListener("click", () => {
+                    openModal(day);
+                });
+
+                calendarDaysElement.appendChild(dayCell);
+            }
+        }
+
+        function openModal(day) {
+            const modal = document.getElementById("eventModal");
+            const eventTitle = document.getElementById("eventTitle");
+            const eventDescription = document.getElementById("eventDescription");
+
+            eventTitle.textContent = `Event on ${day}`;
+            eventDescription.textContent = "*Event Details*";
+            modal.style.display = "block";
+        }
+
+        document.querySelector(".close").onclick = function() {
+            document.getElementById("eventModal").style.display = "none";
+        };
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("eventModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        prevMonthButton.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextMonthButton.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
+</body>
+</html>
